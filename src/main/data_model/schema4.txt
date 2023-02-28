@@ -1,0 +1,49 @@
+CUSTOMERS
+
+customer_id is a unique identifier for each customer.
+first_name, middle_name, and last_name represent the customer's full name.
+date_of_birth represents the customer's date of birth.
+gender represents the customer's gender.
+email represents the customer's email address.
+phone_number represents the customer's primary phone number.
+alternate_phone_number represents an additional phone number the customer may have provided.
+address_line_1, address_line_2, city, state, country, and postal_code represent the customer's address.
+identification_type represents the type of identification document the customer has provided (e.g. passport, driver's license).
+identification_number represents the identification number on the document.
+identification_issue_date represents the date the identification document was issued.
+identification_expiry_date represents the date the identification document will expire.
+marital_status represents the customer's marital status.
+spouse_first_name and spouse_last_name represent the name of the customer's spouse (if applicable).
+employment_status represents the customer's employment status (e.g. employed, self-employed, retired).
+employer_name represents the name of the customer's employer (if applicable).
+employer_address represents the address of the customer's employer (if applicable).
+employer_phone_number represents the phone number of the customer's employer (if applicable).
+occupation represents the customer's occupation.
+annual_income represents the customer's annual income.
+credit_score represents the customer's credit score.
+ACCOUNTS
+
+account_id is a unique identifier for each account.
+customer_id is a foreign key that references the customer_id column in the CUSTOMERS table, representing the customer who owns the account.
+account_type represents the type of account (e.g. checking, savings, money market, CD).
+account_number represents the account number.
+account_status represents the status of the account (e.g. active, closed).
+balance represents the current balance of the account.
+available_balance represents the balance that is currently available for withdrawal or other transactions.
+interest_rate represents the interest rate for the account.
+date_opened represents the date the account was opened.
+last_transaction_date represents the date of the last transaction made on the account.
+overdraft_protection_enabled represents whether overdraft protection is enabled for the account.
+overdraft_limit represents the maximum amount of overdraft protection available for the account.
+TRANSACTIONS
+
+transaction_id is a unique identifier for each transaction.
+account_id is a foreign key that references the account_id column in the ACCOUNTS table, representing the account the transaction was made on.
+transaction_type represents the type of transaction (e.g. deposit, withdrawal, transfer).
+transaction_date represents the date the transaction was made.
+amount represents the amount of money involved in the transaction.
+description represents a description of the transaction.
+check_number represents the check number associated with the transaction (if applicable).
+transaction_category represents the general category of the transaction (e.g. food, transportation, entertainment).
+transaction_subcategory represents the specific subcategory of the transaction (e.g. groceries, dining out, movies).
+merchant_name represents the name

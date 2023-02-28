@@ -1,0 +1,35 @@
+CUSTOMERS
+
+customer_id is a unique identifier for each customer. It is of type INT and is the primary key for the table.
+first_name, middle_name, and last_name represent the customer's full name. They are of type VARCHAR.
+date_of_birth represents the customer's date of birth. It is of type DATE.
+gender represents the customer's gender. It is of type VARCHAR.
+email represents the customer's email address. It is of type VARCHAR.
+phone_number represents the customer's primary phone number. It is of type VARCHAR.
+alternate_phone_number represents an additional phone number the customer may have provided. It is of type VARCHAR.
+address_line_1, address_line_2, city, state, country, and postal_code represent the customer's address. They are of type VARCHAR.
+identification_type represents the type of identification document the customer has provided (e.g. passport, driver's license). It is of type VARCHAR.
+identification_number represents the identification number on the document. It is of type VARCHAR.
+identification_issue_date represents the date the identification document was issued. It is of type DATE.
+identification_expiry_date represents the date the identification document will expire. It is of type DATE.
+marital_status represents the customer's marital status. It is of type VARCHAR.
+spouse_first_name and spouse_last_name represent the name of the customer's spouse (if applicable). They are of type VARCHAR.
+employment_status represents the customer's employment status (e.g. employed, self-employed, retired). It is of type VARCHAR.
+employer_name represents the name of the customer's employer (if applicable). It is of type VARCHAR.
+employer_address represents the address of the customer's employer (if applicable). It is of type VARCHAR.
+employer_phone_number represents the phone number of the customer's employer (if applicable). It is of type VARCHAR.
+occupation represents the customer's occupation. It is of type VARCHAR.
+annual_income represents the customer's annual income. It is of type DECIMAL.
+credit_score represents the customer's credit score. It is of type INT.
+ACCOUNTS
+
+account_id is a unique identifier for each account. It is of type INT and is the primary key for the table.
+customer_id is a foreign key that references the customer_id column in the CUSTOMERS table, representing the customer who owns the account. It is of type INT.
+account_type represents the type of account (e.g. checking, savings, money market, CD). It is of type VARCHAR.
+account_number represents the account number. It is of type VARCHAR.
+account_status represents the status of the account (e.g. active, closed). It is of type VARCHAR.
+balance represents the current balance of the account. It is of type DECIMAL.
+available_balance represents the balance that is currently available for withdrawal or other transactions. It is of type DECIMAL.
+interest_rate represents the interest rate for the account. It is of type DECIMAL.
+date_opened represents the date the account was opened. It is of type DATE.
+last_transaction_date represents the date

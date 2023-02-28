@@ -1,0 +1,133 @@
+CUSTOMERS
+- customer_id (primary key)
+- first_name
+- middle_name
+- last_name
+- date_of_birth
+- gender
+- email
+- phone_number
+- alternate_phone_number
+- address_line_1
+- address_line_2
+- city
+- state
+- country
+- postal_code
+- identification_type (e.g. passport, driver's license)
+- identification_number
+- identification_issue_date
+- identification_expiry_date
+- marital_status
+- spouse_first_name
+- spouse_last_name
+- employment_status
+- employer_name
+- employer_address
+- employer_phone_number
+- occupation
+- annual_income
+- credit_score
+
+ACCOUNTS
+- account_id (primary key)
+- customer_id (foreign key references CUSTOMERS.customer_id)
+- account_type (e.g. checking, savings, money market, CD)
+- account_number
+- account_status (e.g. active, closed)
+- balance
+- available_balance
+- interest_rate
+- date_opened
+- last_transaction_date
+- overdraft_protection_enabled
+- overdraft_limit
+
+TRANSACTIONS
+- transaction_id (primary key)
+- account_id (foreign key references ACCOUNTS.account_id)
+- transaction_type (e.g. deposit, withdrawal, transfer)
+- transaction_date
+- amount
+- description
+- check_number
+- transaction_category (e.g. food, transportation, entertainment)
+- transaction_subcategory (e.g. groceries, dining out, movies)
+- merchant_name
+- merchant_city
+- merchant_state
+- merchant_country
+
+LOANS
+- loan_id (primary key)
+- customer_id (foreign key references CUSTOMERS.customer_id)
+- loan_type (e.g. personal loan, auto loan, mortgage)
+- loan_amount
+- interest_rate
+- origination_date
+- first_payment_date
+- term_in_months
+- payment_amount
+- date_approved
+- date_disbursed
+- outstanding_balance
+- collateral_type (if any)
+- collateral_value (if any)
+
+EMPLOYEES
+- employee_id (primary key)
+- first_name
+- middle_name
+- last_name
+- date_of_birth
+- gender
+- email
+- phone_number
+- alternate_phone_number
+- address_line_1
+- address_line_2
+- city
+- state
+- country
+- postal_code
+- job_title
+- department
+- date_hired
+- date_terminated
+- termination_reason
+- manager_id (foreign key references EMPLOYEES.employee_id)
+- salary
+- bonus
+- stock_options
+
+BRANCHES
+- branch_id (primary key)
+- branch_name
+- address_line_1
+- address_line_2
+- city
+- state
+- country
+- postal_code
+- phone_number
+- fax_number
+- manager_id (foreign key references EMPLOYEES.employee_id)
+- date_opened
+
+ATMS
+- atm_id (primary key)
+- location
+- services_available (e.g. cash withdrawal, balance inquiry, funds transfer)
+- maintenance_schedule
+- status (e.g. operational, out of service)
+
+SECURITY
+- security_id (primary key)
+- authentication_protocol
+- firewall_type
+- intrusion_detection_system
+- antivirus_software
+- security_audit_schedule
+- disaster_recovery_plan
+- data_backup_schedule
+- data_encryption_enabled

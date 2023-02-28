@@ -1,0 +1,85 @@
+CUSTOMERS
+- customer_id (primary key)
+- first_name
+- last_name
+- date_of_birth
+- email
+- phone_number
+- address
+- city
+- state
+- country
+- postal_code
+
+ACCOUNTS
+- account_id (primary key)
+- customer_id (foreign key references CUSTOMERS.customer_id)
+- account_type (e.g. checking, savings, money market, CD)
+- account_number
+- account_status (e.g. active, closed)
+- balance
+- interest_rate
+- date_opened
+- last_transaction_date
+
+TRANSACTIONS
+- transaction_id (primary key)
+- account_id (foreign key references ACCOUNTS.account_id)
+- transaction_type (e.g. deposit, withdrawal, transfer)
+- transaction_date
+- amount
+- description
+
+LOANS
+- loan_id (primary key)
+- customer_id (foreign key references CUSTOMERS.customer_id)
+- loan_type (e.g. personal loan, auto loan, mortgage)
+- loan_amount
+- interest_rate
+- repayment_schedule (e.g. monthly, bi-weekly, quarterly)
+- term_in_months
+- date_approved
+- date_disbursed
+- outstanding_balance
+
+EMPLOYEES
+- employee_id (primary key)
+- first_name
+- last_name
+- date_of_birth
+- email
+- phone_number
+- address
+- city
+- state
+- country
+- postal_code
+- job_title
+- department
+- date_hired
+- salary
+
+BRANCHES
+- branch_id (primary key)
+- branch_name
+- address
+- city
+- state
+- country
+- postal_code
+- phone_number
+- manager_id (foreign key references EMPLOYEES.employee_id)
+
+ATMS
+- atm_id (primary key)
+- location
+- services_available (e.g. cash withdrawal, balance inquiry, funds transfer)
+- maintenance_schedule
+
+SECURITY
+- security_id (primary key)
+- authentication_protocol
+- firewall_type
+- intrusion_detection_system
+- antivirus_software
+- security_audit_schedule
