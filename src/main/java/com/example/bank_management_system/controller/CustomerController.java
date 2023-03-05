@@ -1,5 +1,7 @@
 package com.example.bank_management_system.controller;
 
+import com.example.bank_management_system.model.Customer;
+import com.example.bank_management_system.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,18 +14,18 @@ import java.util.Optional;
 public class CustomerController {
 
     @Autowired
-    private AttorneyRepository attorneyRepository;
+    private CustomerRepository customerRepository;
 
     @GetMapping("/list")
-    public ResponseEntity<List<Attorney>> getAllAttorney(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<Customer>> getAllCustomer(@RequestParam(required = false) String name) {
         try {
-            List<Attorney> attorneys = new ArrayList<>();
+            List<Customer> customers = new ArrayList<>();
             if (name == null) {
-                attorneyRepository.findAll().forEach(attorneys::add);
+                customerRepository.findAll().forEach(customers::add);
             } else {
-                attorneyRepository.findByNameContaining(name).forEach(attorneys::add);
+                customerRepository.findByNameContaining(name).forEach(customers::add);
             }
-            if ((attorneys.isEmpty())) {
+            if ((customers.isEmpty())) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
             return new ResponseEntity<>(HttpStatus.OK);
@@ -33,9 +35,9 @@ public class CustomerController {
     }
 
     @GetMapping("/findById/{id}")
-    public ResponseEntity<Attorney> getAttorneyById(@PathVariable("id") long id) {
+    public ResponseEntity<Customer> getCustomerById(@PathVariable("id") long id) {
 
-        Optional<Attorney> projectData = attorneyRepository.findById(id);
+        Optional<Customer> projectData = customerRepository.findById(id);
         if (projectData.isPresent()) {
             return new ResponseEntity<>(projectData.get(), HttpStatus.OK);
 
@@ -46,9 +48,9 @@ public class CustomerController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Attorney> createAttorney(@RequestBody Attorney project) {
+    public ResponseEntity<Customer> createCustomer(@RequestBody Customer project) {
         try {
-            Attorney _project = attorneyRepository.save(project);
+            Customer _project = customerRepository.save(project);
             return new ResponseEntity<>(_project, HttpStatus.CREATED);
 
         } catch (Exception e) {
@@ -57,11 +59,11 @@ public class CustomerController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Attorney> updateProject(@PathVariable("id") long id, @RequestBody Attorney attorney) {
-        Optional<Attorney> projectData = attorneyRepository.findById(id);
+    public ResponseEntity<Customer> updateProject(@PathVariable("id") long id, @RequestBody Customer customer) {
+        Optional<Customer> projectData = customerRepository.findById(id);
         if (projectData.isPresent()) {
-            attorney.setAttorney_id(id);
-            return new ResponseEntity<>(attorneyRepository.save(attorney), HttpStatus.OK);
+            customer.setCustomer_id(id);
+            return new ResponseEntity<>(customerRepository.save(customer), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -70,7 +72,7 @@ public class CustomerController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<HttpStatus> deleteProject(@PathVariable("id") long id) {
         try {
-            attorneyRepository.deleteById(id);
+            customerRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
