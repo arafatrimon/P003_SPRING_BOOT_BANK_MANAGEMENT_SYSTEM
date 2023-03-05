@@ -1,8 +1,11 @@
 package com.example.bank_management_system.model;
 
+import lombok.Data;
+
+@Data
 public class Atms {
     //(primary key)
-    private String atm_id;
+    private long atm_id;
     private String location;
     //(e.g. cash withdrawal, balance inquiry, funds transfer)
     private String services_available;

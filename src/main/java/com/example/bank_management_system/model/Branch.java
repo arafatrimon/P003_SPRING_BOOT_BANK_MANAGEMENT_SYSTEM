@@ -1,8 +1,11 @@
 package com.example.bank_management_system.model;
 
+import lombok.Data;
+
+@Data
 public class Branch {
 //(primary key)
-    private String branch_id ;
+    private long branch_id ;
 private String branch_name;
 private String address_line_1;
 private String address_line_2;

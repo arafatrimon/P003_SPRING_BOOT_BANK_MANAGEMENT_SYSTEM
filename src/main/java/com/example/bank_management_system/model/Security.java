@@ -1,8 +1,11 @@
 package com.example.bank_management_system.model;
 
+import lombok.Data;
+
+@Data
 public class Security {
 
-    private String security_id;
+    private long security_id;
 private String authentication_protocol;
 private String firewall_type;
 private String intrusion_detection_system;

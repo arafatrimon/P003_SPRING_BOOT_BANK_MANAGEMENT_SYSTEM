@@ -1,8 +1,11 @@
 package com.example.bank_management_system.model;
 
+import lombok.Data;
+
+@Data
 public class Employee {
     //(primary key)
-    private String employee_id;
+    private long employee_id;
     private String first_name;
     private String middle_name;
     private String last_name;

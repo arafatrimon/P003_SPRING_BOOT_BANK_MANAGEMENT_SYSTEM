@@ -1,8 +1,11 @@
 package com.example.bank_management_system.model;
 
+import lombok.Data;
+
+@Data
 public class Loan {
     // (primary key)
-    private String loan_id;
+    private long loan_id;
     //(foreign key references CUSTOMERS.customer_id)
     private String customer_id;
     //(e.g. personal loan, auto loan, mortgage)
